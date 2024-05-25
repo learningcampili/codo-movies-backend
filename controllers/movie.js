@@ -6,8 +6,11 @@ const getMovies = async (req, res, next) => {
 
   try {
     const movies = await Movie.find().skip(Number(offset)).limit(Number(limit));
-
-    res.json(movies);
+    const totalMovies = await Movie.countDocuments();
+    res.json({
+      totalMovies,
+      movies,
+    });
   } catch (error) {
     next(error);
   }
