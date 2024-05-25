@@ -11,6 +11,7 @@ const MovieSchema = new Schema(
     id: Number,
     original_language: String,
     crew: [{ name: String, job: String }],
+    video: String,
   },
   {
     timestamps: true,
