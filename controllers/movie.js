@@ -12,6 +12,7 @@ const getMovies = async (req, res, next) => {
       .skip(Number(offset))
       .limit(Number(limit));
     const totalMovies = await Movie.countDocuments();
+
     res.json({
       totalMovies,
       movies,
